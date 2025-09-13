@@ -15,6 +15,7 @@ class PostController extends Controller
     {
         $categories = Category::get();
         $posts = Post::orderBy('created_at', 'DESC')->get();
+        // $posts = Post::with(['user', 'category'])->orderBy('created_at', 'DESC')->get();
 
         return view('dashboard', [
             'categories' => $categories,
